@@ -4,7 +4,8 @@ from PIL import Image
 import tempfile as tmp
 import numpy as np
 
-img=cv2.imread("10.jpg", 1)
+file=input()
+img=cv2.imread(file,1)
 scale=1.0 #倍率
 height,width=img.shape[0],img.shape[1];centre=(int(width/2),int(height/2))
 
@@ -38,7 +39,6 @@ class Rtxt:
                     cv2.circle(img, (dX, dY), px, (255, 51, 204), -1)
 
                 cv2.imshow('imgWindow',img2) #第1引数=window名, 第2引数=画像名
-
                 #================#
                 tpImg=cv2.addWeighted(img, 0, img0, 1, 0.0) #透過画像
                 i=0
@@ -68,7 +68,6 @@ class Rtxt:
 
         def start():
             execute()
-            #===========#
             tmpdir=tmp.TemporaryDirectory() #一時フォルダを作成
             print(tmpdir.name)
             newFname=str(tmpdir.name)+"/hoge.jpg"
